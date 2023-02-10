@@ -30,25 +30,26 @@ void SetY(uint8_t value)
   digitalWrite(7, (value>>3)&0x01);  // turn the LED on (HIGH is the voltage level)
 }
 
+void SetXY(uint8_t Xvalue, uint8_t Yvalue) {
+  digitalWrite(0, (Xvalue>>0)&0x01);  // turn the LED on (HIGH is the voltage level)
+  digitalWrite(1, (Xvalue>>1)&0x01);  // turn the LED on (HIGH is the voltage level)
+  digitalWrite(2, (Xvalue>>2)&0x01);  // turn the LED on (HIGH is the voltage level)
+  digitalWrite(3, (Xvalue>>3)&0x01);  // turn the LED on (HIGH is the voltage level)
+  delay(1000);
+  digitalWrite(4, (Yvalue>>0)&0x01);  // turn the LED on (HIGH is the voltage level)
+  digitalWrite(5, (Yvalue>>1)&0x01);  // turn the LED on (HIGH is the voltage level)
+  digitalWrite(6, (Yvalue>>2)&0x01);  // turn the LED on (HIGH is the voltage level)
+  digitalWrite(7, (Yvalue>>3)&0x01);  // turn the LED on (HIGH is the voltage level)
+}
+
 // the loop function runs over and over again forever
 void loop() {
-  SetX(0);
-  SetY(0);
+  SetXY(0, 0);
   delay(1000);
-  digitalWrite(4, HIGH);
-  digitalWrite(5, HIGH);
-  digitalWrite(6, HIGH);
-  digitalWrite(7, HIGH);
+  SetXY(15, 0);
   delay(1000); 
-  digitalWrite(0, LOW);  // turn the LED on (LOW is the voltage level)
-  digitalWrite(1, LOW); 
-  digitalWrite(2, LOW);
-  digitalWrite(3, LOW);
+  SetXY(15, 15);
   delay(1000);
-  digitalWrite(4, LOW);
-  digitalWrite(5, LOW);
-  digitalWrite(6, LOW);
-  digitalWrite(7, LOW);
+  SetXY(0, 15);
   delay(1000);
-
 }
