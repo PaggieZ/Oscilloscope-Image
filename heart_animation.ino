@@ -27,9 +27,10 @@ const int resolution = 1; //this determines the update speed. A lower number mea
 const float pi = 3.14159;
 
 // coefficient for beating effect
-float coefficient = 1
+float coefficient = 1;
 // coefficient increases when stretch == ture, decreases whe stretch == false
-bool stretch = true 
+bool stretch = true;
+int count_stretch = 0;
 
 void setup() {
   wav1[0] = 50; //frequency of the sine wave
@@ -39,36 +40,53 @@ void setup() {
   
   TCCR1B = TCCR1B & 0b11111000 | 1;//set timer 1B (pin 9 and 10) to 31250Hz.
   pinMode(Pin1, OUTPUT);
-  pinMode(Pin2, OUTPUT);  
+  pinMode(Pin2, OUTPUT); 
+
+  Serial.begin(9600); // used for testing 
 }
 
 void loop() {
-    
-  if (stretch) { // increase coefficient when stretching
-    coefficient += 0.01 
-  }       
-  else { // decrease coefficient when shrinking
-    coefficient -= 0.01
-  }
-  
-  if (coefficient == 3.0){ // start shrinking when coefficient is 3
-    coefficient = false  
-  }
-  else if (coefficient == 1.0){ // start stretching when coefficient is 1
-    coefficient = true
-  }
 
   time = micros()% 1000000;
   percentage = time / 1000000;
+  //Serial.println("*");
+  //Serial.println(percentage);
+
+
+  if(percentage == 0.0){
+    Serial.println("*");
+    Serial.println(count_stretch);
+    count_stretch += 1;
+    if (count_stretch % 100 == 0) {
+      if (stretch) {
+        coefficient += 0.01;
+      }
+      else {
+        coefficient -= 0.01;
+      }
+
+      if (coefficient == 3.0){ // start shrinking when coefficient is 3
+        stretch = false; 
+      }
+      else if (coefficient == 1.0){ // start stretching when coefficient is 1
+        stretch = true;
+      }
+    }
+  }
+
+  //Serial.println(coefficient);
+  
+  // Serial.print("!", time)
+
   templitude1 = pow(sin(((percentage) * wav1[0]) * 2 * pi),3);
   wav1[2] = (templitude1 * wav1[1]) + offset; //shift the origin of sinewave with offset.
   
-  wav1[2] = wav1[2] * coefficient // apply coefficient to x
+  //wav1[2] = wav1[2] * coefficient; // apply coefficient to x
 
   templitude2 = 0.8*cos(((percentage) * wav2[0]) * 2 * pi) - 0.26*cos(((percentage) * wav2[0]) * 2 * pi * 2) - 0.12*cos(((percentage) * wav2[0]) * 2 * pi * 3) - 0.04*cos(((percentage) * wav2[0]) * 2 * pi * 4);
   wav2[2] = (templitude2 * wav2[1]) + offset;
   
-  wav2[2] = wav2[2] * coefficient // apply coefficient to y
+  //wav2[2] = wav2[2] * coefficient; // apply coefficient to y
   
   average1 = mapf(wav1[2],minOutputScale,maxOutputScale,0,255);
   average2 = mapf(wav2[2],minOutputScale,maxOutputScale,0,255);
