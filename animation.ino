@@ -17,9 +17,40 @@ void setup() {
 }
 
 void loop() {
-  draw(K_x, K_y, K_direction);
-}
+  //int K_x[] = {1, 1, 2, 2, 1, 1, 6, 6, 5, 5, 8, 7, 7, 13, 13, 12, 7, 12, 13, 13, 7, 7, 8, 5, 5, 6, 6, 1}; // X-Coordinate, the last index has the first point
+	//int K_y[] = {2, 3, 3, 13, 13, 14, 14, 13, 13, 10, 13, 13, 14, 14, 13, 13, 8, 3, 3, 2, 2, 3, 3, 6, 3, 3, 2, 2}; // Y-Coordinate
+	//int K_direction[] = {UP, RIGHT, UP, LEFT, UP, RIGHT, DOWN, LEFT, DOWN, UP_RIGHT, LEFT, UP, RIGHT, DOWN, LEFT, DOWN_LEFT, DOWN_RIGHT, RIGHT, DOWN, LEFT, UP, RIGHT, UP_LEFT, DOWN, RIGHT, DOWN, LEFT};
+  draw(K_x, K_y, K_direction, 27);
+  //draw(tri_x, tri_y, tri_direction);
+  //draw();
 
+}
+void draw(int x[], int y[], int direction[], int size) {
+	//int x[] = {1, 1, 2, 2, 1, 1, 6, 6, 5, 5, 8, 7, 7, 13, 13, 12, 7, 12, 13, 13, 7, 7, 8, 5, 5, 6, 6, 1}; // X-Coordinate, the last index has the first point
+	//int y[] = {2, 3, 3, 13, 13, 14, 14, 13, 13, 10, 13, 13, 14, 14, 13, 13, 8, 3, 3, 2, 2, 3, 3, 6, 3, 3, 2, 2}; // Y-Coordinate
+	//int direction[] = {UP, RIGHT, UP, LEFT, UP, RIGHT, DOWN, LEFT, DOWN, UP_RIGHT, LEFT, UP, RIGHT, DOWN, LEFT, DOWN_LEFT, DOWN_RIGHT, RIGHT, DOWN, LEFT, UP, RIGHT, UP_LEFT, DOWN, RIGHT, DOWN, LEFT};
+	// Set initial a,b coordinate values
+	int index = 0;
+
+  while(index < size){    
+    switch (direction[index]) {
+      case 0: // UP
+      case 1: // DOWN
+        draw_vertical(direction[index], x[index], y[index], y[index + 1]);
+        break;
+      case 2: // RIGHT
+      case 3: // LEFT
+        draw_horizontal(direction[index], y[index], x[index], x[index + 1]);
+      case 4:
+      case 5:
+      case 6:
+      case 7:
+        draw_diagonal(direction[index], x[index], y[index], x[index + 1], y[index + 1]);
+        break;
+    }
+    index++;
+  }
+}
 void SetXY(uint8_t Xvalue, uint8_t Yvalue) {
   PORTD = (Xvalue<<4 | (Yvalue&0x0F));
 }
@@ -74,32 +105,7 @@ void draw_square(){
   }
 }
 
-void draw(int x[], int y[], int direction[]) {
-	//int x[] = {1, 1, 2, 2, 1, 1, 6, 6, 5, 5, 8, 7, 7, 13, 13, 12, 7, 12, 13, 13, 7, 7, 8, 5, 5, 6, 6, 1}; // X-Coordinate, the last index has the first point
-	//int y[] = {2, 3, 3, 13, 13, 14, 14, 13, 13, 10, 13, 13, 14, 14, 13, 13, 8, 3, 3, 2, 2, 3, 3, 6, 3, 3, 2, 2}; // Y-Coordinate
-	//int direction[] = {UP, RIGHT, UP, LEFT, UP, RIGHT, DOWN, LEFT, DOWN, UP_RIGHT, LEFT, UP, RIGHT, DOWN, LEFT, DOWN_LEFT, DOWN_RIGHT, RIGHT, DOWN, LEFT, UP, RIGHT, UP_LEFT, DOWN, RIGHT, DOWN, LEFT};
-	// Set initial a,b coordinate values
-	int index = 0;
 
-  while(index < (sizeof(direction))){    
-    switch (direction[index]) {
-      case 0: // UP
-      case 1: // DOWN
-        draw_vertical(direction[index], x[index], y[index], y[index + 1]);
-        break;
-      case 2: // RIGHT
-      case 3: // LEFT
-        draw_horizontal(direction[index], y[index], x[index], x[index + 1]);
-      case 4:
-      case 5:
-      case 6:
-      case 7:
-        draw_diagonal(direction[index], x[index], y[index], x[index + 1], y[index + 1]);
-        break;
-    }
-    index++;
-  }
-}
 
 void draw_horizontal(int direction, int yval, int x1val, int x2val) {  
   if(direction == RIGHT){
