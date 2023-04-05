@@ -17,14 +17,68 @@ void setup() {
 }
 
 void loop() {
-  //int K_x[] = {1, 1, 2, 2, 1, 1, 6, 6, 5, 5, 8, 7, 7, 13, 13, 12, 7, 12, 13, 13, 7, 7, 8, 5, 5, 6, 6, 1}; // X-Coordinate, the last index has the first point
-	//int K_y[] = {2, 3, 3, 13, 13, 14, 14, 13, 13, 10, 13, 13, 14, 14, 13, 13, 8, 3, 3, 2, 2, 3, 3, 6, 3, 3, 2, 2}; // Y-Coordinate
-	//int K_direction[] = {UP, RIGHT, UP, LEFT, UP, RIGHT, DOWN, LEFT, DOWN, UP_RIGHT, LEFT, UP, RIGHT, DOWN, LEFT, DOWN_LEFT, DOWN_RIGHT, RIGHT, DOWN, LEFT, UP, RIGHT, UP_LEFT, DOWN, RIGHT, DOWN, LEFT};
-  draw(K_x, K_y, K_direction, 27);
-  //draw(tri_x, tri_y, tri_direction);
-  //draw();
+  
+  for(int i = 0; i < count; i ++){
+    draw(K_x, K_y, K_direction, K_size);
+  }
+  for(int i = 0; i < count; i ++){
+    draw(E_x, E_y, E_direction, E_size);
+  }
+  for(int i = 0; i < count; i ++){
+    draw(Y_x, Y_y, Y_direction, Y_size);
+  }
+  for(int i = 0; i < count; i ++){
+    draw(S_x, S_y, S_direction, S_size);
+  }
+  for(int i = 0; i < count; i ++){
+    draw(I_x, I_y, I_direction, I_size);
+  }
+  for(int i = 0; i < count; i ++){
+    draw(G_x, G_y, G_direction, G_size);
+  }
+  for(int i = 0; i < count; i ++){
+    draw(H_x, H_y, H_direction, H_size);
+  }
+  for(int i = 0; i < count; i ++){
+    draw(T_x, T_y, T_direction, T_size);
+  }
+  for(int i = 0; i < count; i ++){
+    draw(HB_x, HB_y, HB_direction, HB_size);
+  } 
+  for(int i = 0; i < count; i ++){
+    draw(HS_x, HS_y, HS_direction, HS_size);
+  }   
+  for(int i = 0; i < count; i ++){
+    draw(HB_x, HB_y, HB_direction, HB_size);
+  } 
+  for(int i = 0; i < count; i ++){
+    draw(HS_x, HS_y, HS_direction, HS_size);
+  }   
+  for(int i = 0; i < count; i ++){
+    draw(HB_x, HB_y, HB_direction, HB_size);
+  } 
+  for(int i = 0; i < count; i ++){
+    draw(HS_x, HS_y, HS_direction, HS_size);
+  }   
+  for(int i = 0; i < count; i ++){
+    draw(HB_x, HB_y, HB_direction, HB_size);
+  } 
+  for(int i = 0; i < count; i ++){
+    draw(HS_x, HS_y, HS_direction, HS_size);
+  } 
 
+  for(int i = 0; i < count; i ++){
+    drawKeysight();
+  }  
 }
+
+void drawKeysight(){
+  draw(key_x, key_y, key_direction, key_size);
+  draw(sight_x, sight_y, sight_direction, sight_size);
+  draw(logo_x, logo_y, logo_direction, logo_size);
+  draw(back_x, back_y, back_direction, back_size);
+}
+
 void draw(int x[], int y[], int direction[], int size) {
 	//int x[] = {1, 1, 2, 2, 1, 1, 6, 6, 5, 5, 8, 7, 7, 13, 13, 12, 7, 12, 13, 13, 7, 7, 8, 5, 5, 6, 6, 1}; // X-Coordinate, the last index has the first point
 	//int y[] = {2, 3, 3, 13, 13, 14, 14, 13, 13, 10, 13, 13, 14, 14, 13, 13, 8, 3, 3, 2, 2, 3, 3, 6, 3, 3, 2, 2}; // Y-Coordinate
@@ -36,16 +90,16 @@ void draw(int x[], int y[], int direction[], int size) {
     switch (direction[index]) {
       case 0: // UP
       case 1: // DOWN
-        draw_vertical(direction[index], x[index], y[index], y[index + 1]);
+        draw_vertical(direction[index], x[index] - 1, y[index] - 1, y[index + 1] - 1);
         break;
       case 2: // RIGHT
       case 3: // LEFT
-        draw_horizontal(direction[index], y[index], x[index], x[index + 1]);
+        draw_horizontal(direction[index], y[index] - 1, x[index] - 1, x[index + 1] - 1);
       case 4:
       case 5:
       case 6:
       case 7:
-        draw_diagonal(direction[index], x[index], y[index], x[index + 1], y[index + 1]);
+        draw_diagonal(direction[index], x[index] - 1, y[index] - 1, x[index + 1] - 1, y[index + 1] - 1);
         break;
     }
     index++;
