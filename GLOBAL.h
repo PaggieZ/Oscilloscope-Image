@@ -62,17 +62,16 @@ int HS_direction[] = {UP_LEFT, UP, UP_RIGHT, RIGHT, DOWN_RIGHT, UP_RIGHT, RIGHT,
 int HS_size = 10;
 
 // drawing KEY
-int key_x[] = {5, 4, 2, 2, 1, 1, 2, 2, 4, 5, 3, 3, 5/* end of K */, 9, 9, 6, 6, 8, 8, 6, 6, 9, 9, 5, 5 /*end of E*/, 10, 10, 9, 9, 10, 10, 11, 11, 12, 12, 11, 11, 10 /*end of Y*/, 5};
-int key_y[] = {11, 11, 13, 11, 11, 16, 14, 14, 16, 16, 14, 13, 11/*end of K */, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 11 /*end of E*/, 11, 13, 13, 16, 16, 14, 14, 16, 16, 13, 13, 11, 11 /*end of Y*/, 11};
-int key_direction[] = {LEFT, UP_LEFT, DOWN, LEFT, UP, RIGHT, DOWN, UP_RIGHT, RIGHT, DOWN_LEFT, DOWN, DOWN_RIGHT /*K*/, RIGHT, UP, LEFT, UP, RIGHT, UP, LEFT, UP, RIGHT, UP, LEFT, DOWN /*E*/, RIGHT, UP, LEFT, UP, RIGHT, DOWN, RIGHT, UP, RIGHT, DOWN, LEFT, DOWN, LEFT /*Y*/, LEFT};
-int key_size = 38;
+// int key_x[] = {5, 4, 2, 2, 1, 1, 2, 2, 4, 5, 3, 3, 5/* end of K */, 9, 9, 6, 6, 8, 8, 6, 6, 9, 9, 5, 5 /*end of E*/, 10, 10, 9, 9, 10, 10, 11, 11, 12, 12, 11, 11, 10 /*end of Y*/, 5};
+// int key_y[] = {11, 11, 13, 11, 11, 16, 14, 14, 16, 16, 14, 13, 11/*end of K */, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 11 /*end of E*/, 11, 13, 13, 16, 16, 14, 14, 16, 16, 13, 13, 11, 11 /*end of Y*/, 11};
+// int key_direction[] = {LEFT, UP_LEFT, DOWN, LEFT, UP, RIGHT, DOWN, UP_RIGHT, RIGHT, DOWN_LEFT, DOWN, DOWN_RIGHT /*K*/, RIGHT, UP, LEFT, UP, RIGHT, UP, LEFT, UP, RIGHT, UP, LEFT, DOWN /*E*/, RIGHT, UP, LEFT, UP, RIGHT, DOWN, RIGHT, UP, RIGHT, DOWN, LEFT, DOWN, LEFT /*Y*/, LEFT};
+// int key_size = 38;
 // Updated KEY
-/*
 int key_x[] = {5, 4, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 4, 5, 4, 3, 3, 4, 5/* end of K */, 9,  9,  6,  6,  8,  8,  6,  6,  9,  9, 5, 5 /*end of E*/, 10, 10, 9, 9, 10, 10, 11, 11, 12, 12, 11, 11, 10 /*end of Y*/, 5};
 int key_y[] = {11, 11, 12, 13, 12, 11, 11, 12, 13, 14, 15, 16, 16, 15, 14, 15, 16, 16, 15, 14, 13, 12, 11/*end of K */, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 11 /*end of E*/, 11, 13, 13, 16, 16, 14, 14, 16, 16, 13, 13, 11, 11 /*end of Y*/, 11};
 int key_direction[] = {LEFT, UP_LEFT, UP_LEFT, DOWN, DOWN, LEFT, UP, UP, UP, UP, UP, RIGHT, DOWN, DOWN, UP_RIGHT, UP_RIGHT, RIGHT, DOWN_LEFT, DOWN_LEFT, DOWN, DOWN_RIGHT, DOWN_RIGHT/*K*/, RIGHT, UP, LEFT, UP, RIGHT, UP, LEFT, UP, RIGHT, UP, LEFT, DOWN /*E*/, RIGHT, UP, LEFT, UP, RIGHT, DOWN, RIGHT, UP, RIGHT, DOWN, LEFT, DOWN, LEFT /*Y*/, LEFT};
 int key_size = 48;
-*/
+
 
 
 // drawing SIGHT
