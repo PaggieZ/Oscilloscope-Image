@@ -17,8 +17,46 @@ void setup() {
 }
 
 void loop() {
-  
-  for(int i = 0; i < count * 0.926; i ++){
+  drawWallEAnimation();
+  //draw(poop_x, poop_y, poop_direction, poop_size);
+  //drawPoopAnimation();
+}
+
+void drawPoopAnimation(){
+  for(int i = 0; i < count * 5; i ++){
+    draw(poop1_x, poop1_y, poop1_direction, poop1_size);
+  }
+  for(int i = 0; i < count * 0.09; i ++){
+    draw(poop2_x, poop2_y, poop2_direction, poop2_size);
+  }
+  for(int i = 0; i < count * 0.09; i ++){
+    draw(poop3_x, poop3_y, poop3_direction, poop3_size);
+  }
+  for(int i = 0; i < count * 0.5; i ++){
+    draw(poop4_x, poop4_y, poop4_direction, poop4_size);
+  }
+  for(int i = 0; i < count * 0.09; i ++){
+    draw(poop3_x, poop3_y, poop3_direction, poop3_size);
+  }
+  for(int i = 0; i < count * 0.09; i ++){
+    draw(poop2_x, poop2_y, poop2_direction, poop2_size);
+  }
+}
+
+void drawWallEAnimation(){
+  draw(wall_LE_x, wall_LE_y, wall_LE_direction, wall_LE_size);
+  draw(wall_neck_x, wall_neck_y, wall_neck_direction, wall_neck_size);
+  draw(wall_RE_x, wall_RE_y, wall_RE_direction, wall_RE_size);
+  draw(wall_up_x, wall_up_y, wall_up_direction, wall_up_size);
+  draw(wall_RH_x, wall_RH_y, wall_RH_direction, wall_RH_size);
+  draw(wall_RL_x, wall_RL_y, wall_RL_direction, wall_RL_size);
+  draw(wall_LL_x, wall_LL_y, wall_LL_direction, wall_LL_size);
+  draw(wall_LH_x, wall_LH_y, wall_LH_direction, wall_LH_size);
+  draw(wall_back_x, wall_back_y, wall_back_direction, wall_back_size);
+}
+
+void drawKeysightAnimation(){
+    for(int i = 0; i < count * 0.926; i ++){
     draw(K_x, K_y, K_direction, K_size);
   }
   for(int i = 0; i < count * 1.042; i ++){
@@ -101,6 +139,7 @@ void drawHeart(){
   for(int i = 0; i < count *2; i ++){
     draw(HS_x, HS_y, HS_direction, HS_size);
   }   
+
 }
 
 void drawKeysight(){
