@@ -1,3 +1,5 @@
+#define IMAGE_TYPE const uint8_t PROGMEM
+
 uint8_t UP = 0;
 uint8_t DOWN = 1;
 uint8_t RIGHT = 2;
@@ -110,8 +112,73 @@ uint8_t back_x[] = {13, 13, 12, 12, 11, 11, 10, 10, 9, 9, 6, 6};
 uint8_t back_y[] = {5, 6, 6, 8, 8, 6, 6, 8, 8, 6, 6, 11};
 uint8_t back_direction[] = {UP, LEFT, UP, LEFT, DOWN, LEFT, UP, LEFT, DOWN, LEFT, UP};
 uint8_t back_size = 11;
-/*
+/* 
 int tri_x[] = {1, 4, 4, 1};
 int tri_y[] = {1, 1, 4, 1};
 int tri_direction[] = {RIGHT, UP, DOWN_LEFT};
 */
+
+uint8_t wall_LE_x[] = {7, 6, 6, 5, 3, 2, 2, 5, 7, 7, 3, 4, 4, 5, 5, 7, 7};
+uint8_t wall_LE_y[] = {13, 12, 11, 10, 10, 11, 13, 16, 16, 14, 14, 14, 12, 12, 14, 14, 13};
+uint8_t wall_LE_direction[] = {DOWN_LEFT, DOWN, DOWN_LEFT, LEFT, UP_LEFT, UP, UP_RIGHT, RIGHT, DOWN, LEFT, RIGHT, DOWN, RIGHT, UP, RIGHT, DOWN};
+uint8_t wall_LE_size = 16;
+
+uint8_t wall_neck_x[] = {7, 7, 9, 9, 7, 9, 9, 7, 9, 9, 8, 7, 8, 9};
+uint8_t wall_neck_y[] = {13, 9, 9, 10, 10, 10, 11, 11, 11, 14, 15, 14, 15, 14};
+uint8_t wall_neck_direction[] = {DOWN, RIGHT, UP, LEFT, RIGHT, UP, LEFT, RIGHT, UP, UP_LEFT, DOWN_LEFT, UP_RIGHT, DOWN_RIGHT};
+uint8_t wall_neck_size = 13;
+
+uint8_t wall_RE_x[] = {9, 9, 11, 14, 14,/* */ 13, 11, 10, 10, 9, 9, 13, 12, 12, 11, 11, 9, 9};
+uint8_t wall_RE_y[] = {14, 16, 16, 13, 11, 10, 10, 11, 12, 13, 14, 14, 14, 12, 12, 14, 14, 9};
+uint8_t wall_RE_direction[] = {UP, RIGHT, DOWN_RIGHT, DOWN, DOWN_LEFT, LEFT, UP_LEFT, UP, UP_LEFT, UP, RIGHT, LEFT, DOWN, LEFT, UP, LEFT, DOWN};
+uint8_t wall_RE_size = 17;
+
+uint8_t wall_up_x[] = {9, 9, 8, 8, 7, 7, 6, 6, 5, 5, 6, 6, 10, 10, 5, 11, 11, 10};
+uint8_t wall_up_y[] = {9, 7, 7, 9, 9, 7, 7, 9, 9, 8, 8, 7, 7, 9, 9, 9, 8, 8};
+uint8_t wall_up_direction[] = {DOWN, LEFT, UP, LEFT, DOWN, LEFT, UP, LEFT, DOWN, RIGHT, DOWN, RIGHT, UP, LEFT, RIGHT, DOWN, LEFT};
+uint8_t wall_up_size = 17;
+
+uint8_t wall_RH_x[] = {10, 10, 14, 14, 10, 10, 13, 13, 11, 11};
+uint8_t wall_RH_y[] = {8, 6, 6, 8, 8, 6, 6, 7, 7, 5};
+uint8_t wall_RH_direction[] = {DOWN, RIGHT, UP, LEFT, DOWN, RIGHT, UP, LEFT, DOWN};
+uint8_t wall_RH_size = 9;
+
+uint8_t wall_RL_x[] = {11, 12, 12, 13, 13, 14, 14, 12, 12, 11, 11, 12, 9, 9, 10, 10, 11, 11, 11, 10, 10, 9, 9};
+uint8_t wall_RL_y[] = {5, 5, 4, 4, 3, 3, 1, 1, 3, 3, 1, 1, 1, 3, 3, 4, 4, 5, 4, 4, 3, 3, 2};
+uint8_t wall_RL_direction[] = {RIGHT, DOWN, RIGHT, DOWN, RIGHT, DOWN, LEFT, UP, LEFT, DOWN, RIGHT, LEFT, UP, RIGHT, UP, RIGHT, UP, DOWN, LEFT, DOWN, LEFT, DOWN};
+uint8_t wall_RL_size = 22;
+
+uint8_t wall_LL_x[] = {9, 7, 7, 5, 5, 4, 4, 5, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 7, 6, 6, 5, 5};
+uint8_t wall_LL_y[] = {2, 2, 1, 1, 3, 3, 1, 1, 1, 3, 3, 4, 4, 5, 5, 4, 4, 3, 3, 2, 3, 3, 4, 4, 5};
+uint8_t wall_LL_direction[] = {LEFT, DOWN, LEFT, UP, LEFT, DOWN, RIGHT, LEFT, UP, RIGHT, UP, RIGHT, UP, RIGHT, DOWN, RIGHT, DOWN, RIGHT, DOWN, UP, LEFT, UP, LEFT, UP};
+uint8_t wall_LL_size = 24;
+
+uint8_t wall_LH_x[] = {5, 5, 3, 3, 2, 2, 6, 6, 2, 2, 5};
+uint8_t wall_LH_y[] = {5, 7, 7, 6, 6, 8, 8, 6, 6, 8, 8};
+uint8_t wall_LH_direction[] = {UP, LEFT, DOWN, LEFT, UP, RIGHT, DOWN, LEFT, UP, RIGHT};
+uint8_t wall_LH_size = 10;
+
+uint8_t wall_back_x[] = {5, 5, 7, 7};
+uint8_t wall_back_y[] = {8, 9, 9, 13};
+uint8_t wall_back_direction[] = {UP, RIGHT, UP};
+uint8_t wall_back_size = 3;
+
+uint8_t poop1_x[]  = {1, 1, 3, 2, 1, 1, 2, 13, 15, 15, 14, 12, 10, 9, 6, 5, 5, 10, 10, 12, 14, 14, 12, 11, 10, 9, 9, 10, 11, 11, 12, 12, 11, 10,  9,  9,  8,  7,  8,  9,  9,  7,  5,  6,  6,  5,  4,  2, 2, 3, 4, 4, 5, 6, 6, 5, 4, 3, 2, 1};
+uint8_t poop1_y[] = {7, 5, 3, 4, 3, 2, 1,  1,  3,  5,  6,  4,  4, 3, 3, 4, 5,  5,  4,  4,  6,  7,  9,  8,  9, 8, 7,  6,  7,  8,  9, 11, 12, 12, 13, 12, 11, 11, 11, 12, 13, 15, 15, 14, 13, 12, 12, 10, 8, 7, 7, 8, 9, 8, 7, 6, 7, 7, 8, 7};
+uint8_t poop1_direction[] = {DOWN, DOWN_RIGHT, UP_LEFT, DOWN_LEFT, DOWN, DOWN_RIGHT, RIGHT, UP_RIGHT, UP, UP_LEFT, DOWN_LEFT, LEFT, DOWN_LEFT, LEFT, UP_LEFT, UP, RIGHT, DOWN, RIGHT, UP_RIGHT, UP, UP_LEFT, DOWN_LEFT, UP_LEFT, DOWN_LEFT, DOWN, DOWN_RIGHT, UP_RIGHT, UP, UP_RIGHT, UP, UP_LEFT, LEFT, UP_LEFT, DOWN, DOWN_LEFT, LEFT, RIGHT, UP_RIGHT, UP, UP_LEFT, LEFT, DOWN_RIGHT, DOWN, DOWN_LEFT, LEFT, DOWN_LEFT, DOWN, DOWN_RIGHT, RIGHT, UP, UP_RIGHT, DOWN_RIGHT, DOWN, DOWN_LEFT, UP_LEFT, LEFT, UP_LEFT, DOWN_LEFT};
+uint8_t poop1_size = 59;
+
+uint8_t poop2_x[]  = {1, 1, 3, 2, 1, 1, 2, 13, 15, 15, 14, 12, 10, 9, 6, 5, 5, 10, 10, 12, 14, 14, 12, 11, 10, 9, 9, 10, 11, 11, 12, 12, 11, 10,  9,  9,  8,  7,  8,  9,  9,  7,  5,  6,  6,  5,  4,  2, 2, 3, /* start of left eye */ 4, 4, 6, 6, 5, 4 /* end of left eye */ , 3, 2, 1};
+uint8_t poop2_y[] = {7, 5, 3, 4, 3, 2, 1,  1,  3,  5,  6,  4,  4, 3, 3, 4, 5,  5,  4,  4,  6,  7,  9,  8,  9, 8, 7,  6,  7,  8,  9, 11, 12, 12, 13, 12, 11, 11, 11, 12, 13, 15, 15, 14, 13, 12, 12, 10, 8, 7, /* start of left eye */ 7, 8, 8, 7, 6, 7 /* end of left eye */ , 7, 8, 7};
+uint8_t poop2_direction[] = {DOWN, DOWN_RIGHT, UP_LEFT, DOWN_LEFT, DOWN, DOWN_RIGHT, RIGHT, UP_RIGHT, UP, UP_LEFT, DOWN_LEFT, LEFT, DOWN_LEFT, LEFT, UP_LEFT, UP, RIGHT, DOWN, RIGHT, UP_RIGHT, UP, UP_LEFT, DOWN_LEFT, UP_LEFT, DOWN_LEFT, DOWN, DOWN_RIGHT, UP_RIGHT, UP, UP_RIGHT, UP, UP_LEFT, LEFT, UP_LEFT, DOWN, DOWN_LEFT, LEFT, RIGHT, UP_RIGHT, UP, UP_LEFT, LEFT, DOWN_RIGHT, DOWN, DOWN_LEFT, LEFT, DOWN_LEFT, DOWN, DOWN_RIGHT, RIGHT, /* start of left eye */ UP, RIGHT, DOWN, DOWN_LEFT, UP_LEFT /* end of left eye */, LEFT, UP_LEFT, DOWN_LEFT} ;
+uint8_t poop2_size = 58;
+
+uint8_t poop3_x[]  = {1, 1, 3, 2, 1, 1, 2, 13, 15, 15, 14, 12, 10, 9, 6, 5, 5, 10, 10, 12, 14, 14, 12, 11, 10, 9, 9, 10, 11, 11, 12, 12, 11, 10,  9,  9,  8,  7,  8,  9,  9,  7,  5,  6,  6,  5,  4,  2, 2, 3, /* start of left eye */ 4, 6, 5, 4 /* end of left eye */ , 3, 2, 1};
+uint8_t poop3_y[] = {7, 5, 3, 4, 3, 2, 1,  1,  3,  5,  6,  4,  4, 3, 3, 4, 5,  5,  4,  4,  6,  7,  9,  8,  9, 8, 7,  6,  7,  8,  9, 11, 12, 12, 13, 12, 11, 11, 11, 12, 13, 15, 15, 14, 13, 12, 12, 10, 8, 7, /* start of left eye */ 7, 7, 6, 7 /* end of left eye */ , 7, 8, 7};
+uint8_t poop3_direction[] = {DOWN, DOWN_RIGHT, UP_LEFT, DOWN_LEFT, DOWN, DOWN_RIGHT, RIGHT, UP_RIGHT, UP, UP_LEFT, DOWN_LEFT, LEFT, DOWN_LEFT, LEFT, UP_LEFT, UP, RIGHT, DOWN, RIGHT, UP_RIGHT, UP, UP_LEFT, DOWN_LEFT, UP_LEFT, DOWN_LEFT, DOWN, DOWN_RIGHT, UP_RIGHT, UP, UP_RIGHT, UP, UP_LEFT, LEFT, UP_LEFT, DOWN, DOWN_LEFT, LEFT, RIGHT, UP_RIGHT, UP, UP_LEFT, LEFT, DOWN_RIGHT, DOWN, DOWN_LEFT, LEFT, DOWN_LEFT, DOWN, DOWN_RIGHT, RIGHT, /* start of left eye */ RIGHT, DOWN_LEFT, UP_LEFT /* end of left eye */, LEFT, UP_LEFT, DOWN_LEFT} ;
+uint8_t poop3_size = 56;
+
+uint8_t poop4_x[]  = {1, 1, 3, 2, 1, 1, 2, 13, 15, 15, 14, 12, 10, 9, 6, 5, 5, 10, 10, 12, 14, 14, 12, 11, 10, 9, 9, 10, 11, 11, 12, 12, 11, 10,  9,  9,  8,  7,  8,  9,  9,  7,  5,  6,  6,  5,  4,  2, 2, 3, /* start of left eye */ 4, 5, 6, 5, 4 /* end of left eye */ , 3, 2, 1};
+uint8_t poop4_y[] = {7, 5, 3, 4, 3, 2, 1,  1,  3,  5,  6,  4,  4, 3, 3, 4, 5,  5,  4,  4,  6,  7,  9,  8,  9, 8, 7,  6,  7,  8,  9, 11, 12, 12, 13, 12, 11, 11, 11, 12, 13, 15, 15, 14, 13, 12, 12, 10, 8, 7, /* start of left eye */ 7, 6, 7, 6, 7 /* end of left eye */ , 7, 8, 7};
+uint8_t poop4_direction[] = {DOWN, DOWN_RIGHT, UP_LEFT, DOWN_LEFT, DOWN, DOWN_RIGHT, RIGHT, UP_RIGHT, UP, UP_LEFT, DOWN_LEFT, LEFT, DOWN_LEFT, LEFT, UP_LEFT, UP, RIGHT, DOWN, RIGHT, UP_RIGHT, UP, UP_LEFT, DOWN_LEFT, UP_LEFT, DOWN_LEFT, DOWN, DOWN_RIGHT, UP_RIGHT, UP, UP_RIGHT, UP, UP_LEFT, LEFT, UP_LEFT, DOWN, DOWN_LEFT, LEFT, RIGHT, UP_RIGHT, UP, UP_LEFT, LEFT, DOWN_RIGHT, DOWN, DOWN_LEFT, LEFT, DOWN_LEFT, DOWN, DOWN_RIGHT, RIGHT, /* start of left eye */ DOWN_RIGHT, UP_RIGHT, DOWN_LEFT, UP_LEFT /* end of left eye */, LEFT, UP_LEFT, DOWN_LEFT} ;
+uint8_t poop4_size = 57;
