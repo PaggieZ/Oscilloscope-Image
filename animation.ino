@@ -16,10 +16,140 @@ void setup() {
   pinMode(29, OUTPUT); // LSB
 }
 
+
 void loop() {
-  drawWallEAnimation();
-  //draw(poop_x, poop_y, poop_direction, poop_size);
-  //drawPoopAnimation();
+  //spellName();
+  char letter;
+  static char name[256];
+  unsigned index = 0;
+  unsigned index2 = 0;
+  if(Serial.available() > 0)
+  {
+    index=0;
+    while(Serial.available())
+    {
+      name[index++] = Serial.read();
+    }
+  }
+  for(unsigned i = 0; i < count; i++)
+  {
+    switch(name[index2])
+    {
+      case 'A':
+      case 'a':
+        draw(A_x, A_y, A_direction, A_size);
+        break;
+      case 'B':
+      case 'b':
+        draw(B_x, B_y, B_direction, B_size);
+        break;
+      case 'C':
+      case 'c':
+        draw(C_x, C_y, C_direction, C_size);
+        break;
+      case 'D':
+      case 'd':
+        draw(D_x, D_y, D_direction, D_size);
+        break;
+      case 'E':
+      case 'e':
+        draw(E_x, E_y, E_direction, E_size);
+        break;
+      case 'F':
+      case 'f':
+        draw(F_x, F_y, F_direction, F_size);
+        break;
+      case 'G':
+      case 'g':
+        draw(G_x, G_y, G_direction, G_size);
+        break;
+      case 'H':
+      case 'h':
+        draw(H_x, H_y, H_direction, H_size);
+        break;
+      case 'I':
+      case 'i':
+        draw(I_x, I_y, I_direction, I_size);
+        break;
+      case 'J':
+      case 'j':
+        draw(J_x, I_y, I_direction, I_size);
+        break;
+      case 'K':
+      case 'k':
+        draw(K_x, K_y, K_direction, K_size);
+        break;
+      case 'L':
+      case 'l':
+        draw(L_x, L_y, L_direction, L_size);
+        break;
+      case 'M':
+      case 'm':
+        draw(M_x, M_y, M_direction, M_size);
+        break;
+      case 'N':
+      case 'n':
+        draw(N_x, N_y, N_direction, N_size);
+        break; 
+      case 'O':
+      case 'o':
+        draw(O_x, O_y, O_direction, O_size);
+        break; 
+      case 'P':
+      case 'p':
+        draw(P_x, P_y, P_direction, P_size);
+        break;
+      case 'Q':
+      case 'q':
+        draw(Q_x, Q_y, Q_direction, Q_size);
+        break; 
+      case 'R':
+      case 'r':
+        draw(R_x, R_y, R_direction, R_size);
+        break; 
+      case 'S':
+      case 's':
+        draw(S_x, S_y, S_direction, S_size);
+        break; 
+      case 'T':
+      case 't':
+        draw(T_x, T_y, T_direction, T_size);
+        break; 
+      case 'U':
+      case 'u':
+        draw(U_x, U_y, U_direction, U_size);
+        break; 
+      case 'V':
+      case 'v':
+        draw(V_x, V_y, V_direction, V_size);
+        break; 
+      case 'W':
+      case 'w':
+        draw(W_x, W_y, W_direction, W_size);
+        break; 
+      case 'X':
+      case 'x':
+        draw(X_x, X_y, X_direction, X_size);
+        break; 
+      case 'Y':
+      case 'y':
+        draw(Y_x, Y_y, Y_direction, Y_size);
+        break; 
+      case 'Z':
+      case 'z':
+        draw(Z_x, Z_y, Z_direction, Z_size);
+        break; 
+    }
+  }
+  if(index2<index)
+  {
+    index2++;
+  }
+  else
+  {
+    index2=0;
+  }
+
 }
 
 void drawPoopAnimation(){
