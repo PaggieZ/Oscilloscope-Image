@@ -41,7 +41,7 @@ void loop() {
     }
   }
   //Serial.print(index);
-  for(unsigned i = 0; i < count; i++)
+  for(unsigned i = 0; i < count * 2.5; i++)
   {
     switch(name[index2])
     {
@@ -149,21 +149,27 @@ void loop() {
       case 'z':
         draw(Z_x, Z_y, Z_direction, Z_size);
         break; 
+      default:
+        delay(1);
     }
   }
   if(index2<index)
   {
     index2++;
+    delay(1);
+
   }
   else
   {
     index2=0;
+    drawPoopAnimation();
     drawHeart();
+    //drawWallEAnimation();
   }
 
 }
 
-
+/*
 void spellName(){
   for(int i = 0; i < name_size; i++){
     for(int j = 9; j < count; j++){
@@ -250,10 +256,10 @@ void spellName(){
     }
   }
 }
-
+*/
 
 void drawPoopAnimation(){
-  for(int i = 0; i < count * 5; i ++){
+  for(int i = 0; i < count * 3; i ++){
     draw(poop1_x, poop1_y, poop1_direction, poop1_size);
   }
   for(int i = 0; i < count * 0.09; i ++){
@@ -270,6 +276,9 @@ void drawPoopAnimation(){
   }
   for(int i = 0; i < count * 0.09; i ++){
     draw(poop2_x, poop2_y, poop2_direction, poop2_size);
+  }
+  for(int i = 0; i < count * 1; i ++){
+    draw(poop1_x, poop1_y, poop1_direction, poop1_size);
   }
 }
 
